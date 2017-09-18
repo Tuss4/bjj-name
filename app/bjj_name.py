@@ -29,8 +29,10 @@ def update_first_name(first_name):
     vowels = ['A', 'E', 'I', 'O', 'U', 'Y']
     if first_name[0].upper() in vowels:
         new_name = "R" + first_name.lower()
-    elif first_name[0].upper == 'R':
+    elif first_name[0].upper() == 'R':
         new_name = first_name
+    elif first_name[1] == 'r':
+        new_name = first_name[1].upper() + first_name[2:]
     else:
         new_name = "R" + first_name[1:]
     return new_name

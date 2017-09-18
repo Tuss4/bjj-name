@@ -1,11 +1,16 @@
 import falcon
+from falcon_cors import CORS
 import json
 import logging
 import sys
 from app.bjj_name import get_last_name, update_first_name
 
+cors = CORS(
+    allow_origins_list=['http://localhost:3000'],
+    allow_headers_list=['Content-Type'],
+    allow_methods_list=['POST', 'GET'])
 
-api = application = falcon.API()
+api = application = falcon.API(middleware=[cors.middleware])
 
 
 class PingResource(object):
