@@ -6,7 +6,7 @@ import sys
 from app.bjj_name import get_last_name, update_first_name
 
 cors = CORS(
-    allow_origins_list=['http://localhost:3000'],
+    allow_origins_list=['http://localhost:3000', 'http://bjj-name-ui.s3-website-us-east-1.amazonaws.com'],
     allow_headers_list=['Content-Type'],
     allow_methods_list=['POST', 'GET'])
 
@@ -16,7 +16,7 @@ api = application = falcon.API(middleware=[cors.middleware])
 class PingResource(object):
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200
-        resp.body = ('Ping yo.')
+        resp.body = (json.dumps({"ping": 'Pong yo.'}))
 
 
 class NameResource(object):
